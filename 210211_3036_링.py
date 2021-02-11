@@ -6,9 +6,9 @@ Created on Thu Feb 11 22:19:16 2021
 """
 
 # BOJ # 3036 링
+# https://www.acmicpc.net/problem/3036
 
 import sys
-# sys.stdin.readline()
 
 N = int(sys.stdin.readline())
 ring = list(map(int, sys.stdin.readline().split()))
