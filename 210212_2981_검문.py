@@ -5,6 +5,8 @@ Created on Fri Feb 12 20:33:32 2021
 @author: newave986.git
 """
 
+# https://www.acmicpc.net/problem/2981
+# BOJ #2981 검문
 
 import sys
 # sys.stdin.readline()
