@@ -3,9 +3,6 @@ class Solution:
         
         minus = False
         
-        if (x <= -(2^31)) or (x >= (2^31 - 1)):
-            return 0
-        
         if x < 0: 
             x *= (-1)
             minus = True
@@ -17,5 +14,6 @@ class Solution:
         
         if minus == True:
             y *= (-1)
-
-        return y
+            
+        if (y <= -(2**31)) or (y >= (2**31 - 1)): return 0
+        else: return y
