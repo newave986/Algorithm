@@ -1,2 +1,2 @@
 # Algorithm
-Solve Algorithm problems on my own. 
+Solving Algorithm problems on my own. 
