@@ -9,8 +9,8 @@ Created on Thu Mar 25 23:26:07 2021
 # 숫자 카드 2
 # Binary Search
 
-# import sys
-# input = sys.stdin.readline
+import sys
+input = sys.stdin.readline
 
 def binarySearch(start, end, x):
     
