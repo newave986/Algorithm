@@ -8,7 +8,6 @@ Created on Thu Mar 25 23:26:07 2021
 # BOJ 10816 https://www.acmicpc.net/problem/10816
 # 숫자 카드 2
 # Binary Search
-#
 
 import sys
 input = sys.stdin.readline
@@ -19,20 +18,22 @@ def binarySearch(start, end, x):
     global count
     
     if start > end:
-        return 0
+        return False
     
     mid = (start + end) // 2
-    
-    if x < card[mid]:
-        binarySearch(start, mid - 1, x)
-        
-    elif x > card[mid]:
-        binarySearch(mid + 1, end, x)
     
     if x == card[mid]:
         del card[mid]
         count += 1
-        return 1
+        
+        binarySearch(0, len(card)-1, x)
+    
+    elif x < card[mid]:
+        binarySearch(start, mid - 1, x)
+        
+    elif x > card[mid]:
+        binarySearch(mid + 1, end, x)
+
         
     
 N = int(input())
@@ -47,13 +48,9 @@ for i in get:
     
     count = 0
     
-    while binarySearch(0, len(card)-1, i) == 1:
-        binarySearch(0, len(card)-1, i)
+    binarySearch(0, len(card)-1, i)
         
     print(count, end = ' ')
-    
-    
-    
     
     
     
