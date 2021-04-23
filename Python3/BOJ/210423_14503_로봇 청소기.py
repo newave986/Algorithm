@@ -27,8 +27,8 @@ graph[r][c] = 2
 
 def dfs(start, d):
     
-    dx = [0, 1, 0, -1]
-    dy = [-1, 0, 1, 0]
+    dx = [-1, 0, 1, 0]
+    dy = [0, 1, 0, -1]
     
     global graph
     global cleanBlock
@@ -48,13 +48,13 @@ def dfs(start, d):
             graph[x + dx[d]][y + dy[d]] = 2
             dfs((x + dx[d], y + dy[d]), d)
                 
-        if graph[x][y] != 0:
+        else:
             
             status = 1
         
             for t in range(1, 4):
                 
-                tmp_d = (d + t) % 4
+                tmp_d = (d - t) % 4
                 
                 tmp_x = x + dx[tmp_d]
                 tmp_y = y + dy[tmp_d]
@@ -71,12 +71,11 @@ def dfs(start, d):
         
             if status == 1:
                 
-                if (x - dx[d] < 0 or x - dx[d] >= N or y - dy[d] < 0 or y - dy[d] >= M):
+                if (x - dx[(d+1)%4] < 0 or x - dx[(d+1)%4] >= N or y - dy[(d+1)%4] < 0 or y - dy[(d+1)%4] >= M):
                     pass
                                 
-                elif graph[x - dx[d]][y - dy[d]] == 2:
-                    
-                        dfs((x- dx[d], y - dy[d]), d)
+                elif graph[x - dx[(d+1)%4]][y - dy[(d+1)%4]] == 2:
+                        dfs((x- dx[(d+1)%4], y - dy[(d+1)%4]), (d+1)%4)
                         
                 else: return
                     
